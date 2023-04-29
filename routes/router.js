@@ -12,7 +12,7 @@ module.exports = (app) => {
     }
   );
   app.get("/api/succeso", (req, res) => {
-    res.send("Good");
+    res.send(200);
   });
   app.post("/logout", function (req, res, next) {
     req.logout(function (err) {
