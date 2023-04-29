@@ -67,7 +67,7 @@ app.get("/", (req, res) => {
 
 app.get("/error", (err, req, res) => {
   if(err){
-    return res.json({
+    res.json({
       msg: "Bad",
       status: 200,
     });
