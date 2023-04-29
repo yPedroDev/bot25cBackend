@@ -25,7 +25,10 @@ module.exports = (app) => {
     passport.authenticate("discord", {
       failureRedirect: "/error"
     }),async function(req, res){
-      res.status(200);
+      res.json({
+        msg: "Good",
+        status: 200
+      });
     }
   );
 };
