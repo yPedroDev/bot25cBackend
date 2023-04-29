@@ -13,9 +13,15 @@ module.exports = (app) => {
   );
   app.get("/api/succeso", (err, req, res) => {
     if(err){
-      res.send("Bad");
+      res.json({
+        msg: "Bad",
+        status: 200
+      });
     }else{
-      res.send("Good");
+      res.json({
+        msg: "Good",
+        status: 200
+      });
     }
   });
   app.post("/logout", function (req, res, next) {
