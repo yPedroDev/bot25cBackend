@@ -31,7 +31,7 @@ module.exports = (app) => {
     passport.authenticate("discord", {
       failureRedirect: "/error"
     }),async function(req, res){
-      res.redirect("/api/succeso");
+      res.redirect("https://localhost:3000/");
     }
   );
 };
