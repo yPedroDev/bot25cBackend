@@ -13,9 +13,7 @@ module.exports = (app) => {
   );
   app.get("/api/succeso", (req, res) => {
     if(req.user){
-     res.json({
-        msg: 'OK'
-     });
+     res.send("OK");
     }else{
      res.send("NOT LOGGED IN");
     }
