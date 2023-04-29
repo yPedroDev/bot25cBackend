@@ -15,7 +15,7 @@ module.exports = (app) => {
     if(req.user){
      res.send("OK"); 
     }else{
-     res.sendStatus("NOT LOGGED IN");
+     res.send("NOT LOGGED IN");
     }
   });
   app.get("/logout", function (req, res, next) {
