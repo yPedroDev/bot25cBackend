@@ -11,7 +11,18 @@ module.exports = (app) => {
       res.send(200);
     }
   );
-
+  app.get("/api/succeso", (err, req, res) => {
+    if(err){
+      res.json({
+        msg: "Bad",
+      });
+    }else{
+      res.json({
+        msg: "Good",
+        status: 200,
+      });
+    }
+  });
   app.post("/logout", function (req, res, next) {
     req.logout(function (err) {
       if (err) {
@@ -25,10 +36,7 @@ module.exports = (app) => {
     passport.authenticate("discord", {
       failureRedirect: "/error"
     }),async function(req, res){
-      res.json({
-        msg: "Good",
-        status: 200
-      });
+      res.redirect("/api/succeso");
     }
   );
 };
