@@ -11,12 +11,8 @@ module.exports = (app) => {
       res.send(200);
     }
   );
-  app.get("/api/succeso", (err, req, res) => {
-    if(err){
-      res.send("Bad");
-    }else{
-      res.send("Good");
-    }
+  app.get("/api/succeso", (req, res) => {
+    res.send("Good");
   });
   app.post("/logout", function (req, res, next) {
     req.logout(function (err) {
