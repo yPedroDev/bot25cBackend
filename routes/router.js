@@ -14,11 +14,8 @@ module.exports = (app) => {
   app.get("/api/succeso", (req, res) => {
     res.sendStatus(200);
   });
-  app.post("/logout", function (req, res, next) {
-    req.logout(function (err) {
-      if (err) {
-        return next(err);
-      }
+  app.get("/logout", function (req, res, next) {
+    req.logout(function () {
       res.redirect("https://bot25c.vercel.app/");
     });
   });
