@@ -65,8 +65,18 @@ app.get("/", (req, res) => {
   res.send(`<h1>if you reading this, welcome to the main bot25c api!</h1>`);
 });
 
-app.get("/error", (req, res) => {
-  res.send(`<h1>Something goes wrong!</h1>`);
+app.get("/error", (err, req, res) => {
+  if(err){
+    return res.json({
+      msg: "Bad",
+      status: 200,
+    });
+  }else{
+    res.json({
+      msg: "Good",
+      status: 200,
+    });
+  }
 });
 
 app.get("*", (req, res) => {
