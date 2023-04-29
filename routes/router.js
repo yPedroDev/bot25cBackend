@@ -12,7 +12,11 @@ module.exports = (app) => {
     }
   );
   app.get("/api/succeso", (req, res) => {
-    res.sendStatus(200);
+    if(req.user){
+     res.send("OK"); 
+    }else{
+     res.sendStatus("NOT LOGGED IN");
+    }
   });
   app.get("/logout", function (req, res, next) {
     req.logout(function () {
