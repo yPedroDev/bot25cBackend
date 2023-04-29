@@ -19,7 +19,7 @@ module.exports = (app) => {
       if (err) {
         return next(err);
       }
-      res.redirect("/");
+      res.redirect("https://bot25c.vercel.app/");
     });
   });
   app.get(
