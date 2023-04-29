@@ -1,0 +1,8 @@
+<!-- <div class="container">
+        <div class="guilds">
+            <div class="row">
+                <% guilds.forEach((guild)=> { %> <%- include('guilds.html', { guild }) -%>
+                        <% }) %>
+            </div>
+        </div>
+    </div> -->
