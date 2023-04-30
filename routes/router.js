@@ -11,7 +11,7 @@ module.exports = (app) => {
       res.send(200);
     }
   );
-  app.get("/api/succeso", (req, res) => {
+  app.post("/api/succeso", (req, res) => {
     try {
       const { username, locale } = req.user;
       const user = ({
