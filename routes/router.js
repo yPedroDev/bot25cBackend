@@ -19,9 +19,9 @@ module.exports = (app) => {
        username: username || 'Failed to load user name, probaly null, or next ui error get.',
        locale: locale || 'Failed to load user locale, probaly null, or next ui error get.'
       });
-      res.status(200).json(user);
+      res.json(user);
      } catch (err) {
-      res.status(401).json({error: '401'});
+      res.json({error: '401'});
      }
   });
   app.get("/api/getUser", (req, res) => {
