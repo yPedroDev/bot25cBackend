@@ -19,7 +19,9 @@ module.exports = (app) => {
     }
   });
   app.get("/api/getUser", (req, res) => {
-    res.send(req.user);
+    res.status(200).json({
+      user: req.user,
+    });
   });
   app.get("/logout", function (req, res, next) {
     req.logout(function () {
