@@ -12,11 +12,17 @@ module.exports = (app) => {
     }
   );
   app.get("/api/succeso", (req, res) => {
-    if(req.user){
-     res.status(200).send('LOGGED IN');
-    }else{
-     res.status(401).send('NOT LOGGED IN');
-    }
+    try {
+      const { username, locale } = req.user;
+      const user = ({
+       status: res.status,
+       username: username || 'Failed to load user name, probaly null, or next ui error get.',
+       locale: locale || 'Failed to load user locale, probaly null, or next ui error get.'
+      });
+      res.status(200).json(user);
+     } catch (err) {
+      res.status(401).json({error: '401'});
+     }
   });
   app.get("/api/getUser", (req, res) => {
     res.status(200).send(req.user);
