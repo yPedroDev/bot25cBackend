@@ -13,9 +13,9 @@ module.exports = (app) => {
   );
   app.get("/api/succeso", (req, res) => {
     if(req.user){
-     res.status(200).json({message: 'LOGGED IN'});
+     res.status(200).send('LOGGED IN');
     }else{
-     res.status(401).json({message: 'NOT LOGGED IN'});
+     res.status(401).send('NOT LOGGED IN');
     }
   });
   app.get("/api/getUser", (req, res) => {
