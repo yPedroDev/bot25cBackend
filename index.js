@@ -19,7 +19,8 @@ require("dotenv").config();
 const privateKey  = fs.readFileSync('certificates/key.pem', 'utf8');
 const certificate = fs.readFileSync('certificates/cert.pem', 'utf8');
 const credentials = {key: privateKey, cert: certificate};
-
+const httpServer = http.createServer(app);
+const httpsServer = https.createServer(credentials, app);
 const app = express();
 const PORT = 443;
 
@@ -48,6 +49,10 @@ require('./strategies/discord');
 app.use(compression());
 app.use(enforce.HTTPS({ trustProtoHeader: true }));
 app.use(express.static(path.join(__dirname, "client/build")));
+// For http
+httpServer.listen(8080);
+// For https
+httpsServer.listen(8443);
 
 mongoose.connect(process.env.MONGOOSE).then(() => console.log('Connected!'));
 
