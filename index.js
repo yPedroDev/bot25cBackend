@@ -21,13 +21,8 @@ const certificate = fs.readFileSync('certificates/cert.pem', 'utf8');
 const credentials = {key: privateKey, cert: certificate};
 
 const app = express();
-const httpServer = http.createServer(app);
-const httpsServer = https.createServer(credentials, app);
 const PORT = 443;
 
-
-
-app.use(express.static(path.join(__dirname, 'public')));
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -53,11 +48,6 @@ require('./strategies/discord');
 app.use(compression());
 app.use(enforce.HTTPS({ trustProtoHeader: true }));
 app.use(express.static(path.join(__dirname, "client/build")));
-
-// For http
-httpServer.listen(8080);
-// For https
-httpsServer.listen(8443);
 
 mongoose.connect(process.env.MONGOOSE).then(() => console.log('Connected!'));
 
