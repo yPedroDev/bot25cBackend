@@ -19,9 +19,10 @@ require("dotenv").config();
 const privateKey  = fs.readFileSync('certificates/key.pem', 'utf8');
 const certificate = fs.readFileSync('certificates/cert.pem', 'utf8');
 const credentials = {key: privateKey, cert: certificate};
+const app = express();
 const httpServer = http.createServer(app);
 const httpsServer = https.createServer(credentials, app);
-const app = express();
+
 const PORT = 443;
 
 app.use(cookieParser());
